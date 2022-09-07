@@ -1,0 +1,58 @@
+.sidebar
+    background-color: $color-green-dark
+    grid-column: sidebar-start / sidebar-end
+    grid-row: 1 / -1
+    padding: 3.5rem 1.5rem
+    display: flex
+    justify-content: center
+    @include respond(tab-land)
+        grid-row: sidebar-start / sidebar-end
+        grid-column: 1 / -1
+        padding: 2rem 1.5rem
+
+.hamburger
+    position: fixed
+    border: none
+    border-bottom: .2rem solid $color-grey-light
+    height: 1rem
+    width: 4.5rem
+    z-index: 10
+    @include respond(tab-land)
+        position: absolute
+        right: 3rem
+
+    &::before, &::after
+        content: ""
+        border-bottom: .2rem solid $color-grey-light
+        height: 1rem
+        width: 4.5rem
+        display: block
+
+    &::before
+        transform: translateY(-1rem)
+    &::after
+        transform: translateY(0rem)
+
+.dropdown
+    display: none
+    position: absolute
+    background: $color-green-dark
+    width: 33rem
+    top: -4rem
+    left: 100%
+    align-text: center
+    @include respond(tab-land)
+        position: absolute
+        top: 1rem
+        left: -24.5rem
+
+.dropdown li
+    margin: 3rem 2rem
+    @include respond(tab-land)
+        margin: 2rem 3rem
+
+.hamburger:hover
+    cursor: pointer
+
+.hamburger:hover .dropdown
+    display: block
